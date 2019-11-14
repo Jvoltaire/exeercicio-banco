@@ -2,6 +2,7 @@ package model;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 public class Conta {
 
@@ -15,12 +16,14 @@ public class Conta {
         this.agencia = agencia;
         this.numero = numero;
     }
+
+
     public String getDescricao(){
         return new StringBuffer()
 
-                .append("- agencia:")
+                .append("Agencia: ")
                 .append(this.getAgencia())
-                .append("-Conta")
+                .append(". Conta: ")
                 .append(this.getNumero())
                 .toString();
 
@@ -37,5 +40,28 @@ public class Conta {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Conta conta = (Conta) o;
+        return Objects.equals(agencia, conta.agencia) &&
+                Objects.equals(numero, conta.numero) &&
+                Objects.equals(saldo, conta.saldo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(agencia, numero, saldo);
+    }
+
+    @Override
+    public String toString() {
+        return "Conta{" +
+                "agencia=" + agencia +
+                ", numero=" + numero +
+                ", saldo=" + saldo +
+                '}';
+    }
 }
 

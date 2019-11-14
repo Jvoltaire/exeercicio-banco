@@ -15,15 +15,15 @@ public class CorrentistaPF extends Correntista {
 
     public String getDescricao(){
         return new StringBuffer()
-                .append ("\ntipo de conta\n")
+                .append ("\nTipo de Conta\n")
                 .append(TIPO_CONTA)
-                .append("\nnome\n")
+                .append("\nNome\n")
                 .append(super.getNome())
-                .append("\nconta\n")
-                .append(this.getConta())
-                .append("\ntipo documento\n")
+                .append("\nConta\n")
+                .append(this.getConta().getDescricao())
+                .append("\nTipo Documento\n")
                 .append(this.tipoDocumento)
-                .append("\ndocumento\n")
+                .append("\nDocumento\n")
                 .append(this.documento)
                 .toString();
     }

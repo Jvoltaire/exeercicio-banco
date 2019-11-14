@@ -1,14 +1,11 @@
 package tela;
 
 import dao.BancoDao;
-import jdk.internal.dynalink.linker.LinkerServices;
 import model.Conta;
-import org.w3c.dom.DOMImplementationSource;
 import util.ScannerIntrface;
 import util.UsuarioUtil;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class TelaConta  implements Tela{
     private UsuarioUtil usuarioUtil;
@@ -28,10 +25,10 @@ public class TelaConta  implements Tela{
 
     String msg = new StringBuffer()
 
-        .append("\nMenu Conta\n")
-        .append("\nEscolha uma opção\n")
-        .append("\n1- Criar Conta\n")
-        .append("\n2 -Lista Contas\n").toString();
+            .append("\nMenu Conta\n")
+            .append("\nEscolha uma opção\n")
+            .append("\n1-Criar Conta\n")
+            .append("\n2-Lista Contas\n").toString();
 
 
     usuarioUtil.exibeMensagem(msg);
@@ -48,15 +45,15 @@ public class TelaConta  implements Tela{
 
     }
 
-    private void exibeMenuCriarConta() {
-        usuarioUtil.exibeMensagem("\nInfora o número da agencia:\n");
+    public void exibeMenuCriarConta() {
+        usuarioUtil.exibeMensagem("\nInforme o numero da Agencia\n");
         int agencia = Integer.parseInt(this.scanner.nextLine());
 
-        usuarioUtil.exibeMensagem("\nsegue lista de contas disponiveis:\n");
-        List<Conta> listaConta = this.bancoDao.listarContas();
-        int posicao = 0;
+//        usuarioUtil.exibeMensagem("\nsegue lista de contas disponiveis:\n");
+//        List<Conta> listaConta = this.bancoDao.listarContas();
+//        int posicao = 0;
 
-        usuarioUtil.exibeMensagem("\nInforme o numero da conta:\n");
+        usuarioUtil.exibeMensagem("\nInforme o numero\n");
         int conta = Integer.parseInt(this.scanner.nextLine());
 
 
@@ -65,7 +62,7 @@ public class TelaConta  implements Tela{
 
     }
 
-    private void exibeMenuListarConta() {
+    public void exibeMenuListarConta() {
 
         List<Conta> lista = this.bancoDao.listarContas();
 
@@ -80,4 +77,8 @@ public class TelaConta  implements Tela{
             usuarioUtil.exibeMensagem(conta.getDescricao());
         }
     }
+
+
 }
+
+
